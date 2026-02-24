@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liderança na Prática | Sistec Solar</title>
+
+<style>
+:root{
+    --primary:#f97316;
+    --accent:#38bdf8;
+    --yellow:#facc15;
+}
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    overflow:hidden;
+}
+
+/* FUNDO DINÂMICO */
+.bg-image{
+    position:fixed;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    filter:blur(35px) brightness(0.35);
+    transform:scale(1.15);
+    transition:0.6s ease;
+    z-index:-1;
+    opacity:0;
+}
+.bg-image.active-bg{
+    opacity:1;
+}
+
+/* Barra progresso */
+.progress-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    height:4px;
+    background:linear-gradient(90deg,var(--primary),var(--accent));
+    width:0%;
+    transition:0.4s;
+    z-index:999;
+}
+
+/* Slides */
+.slide{
+    display:none;
+    width:100vw;
+    height:100vh;
+    padding:100px;
+    box-sizing:border-box;
+    position:relative;
+}
+.slide.active{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.logo{
+    position:absolute;
+    top:30px;
+    right:40px;
+    width:140px;
+    opacity:0.8;
+}
+
+/* Conteúdo */
+.content{
+    max-width:900px;
+}
+
+h1{
+    font-size:48px;
+    margin-bottom:25px;
+    color:var(--yellow);
+}
+
+h2{
+    font-size:26px;
+    margin-bottom:25px;
+    color:var(--accent);
+}
+
+p{
+    font-size:22px;
+    line-height:1.6;
+    color:#e2e8f0;
+}
+
+/* Destaque laranja */
+.highlight{
+    color:var(--primary);
+    font-weight:bold;
+}
+
+/* Bullets animados */
+ul{
+    list-style:none;
+    padding:0;
+}
+
+ul li{
+    font-size:24px;
+    margin-bottom:16px;
+    opacity:0;
+    transform:translateY(20px);
+}
+
+ul li::before{
+    content:"▸";
+    margin-right:10px;
+    color:var(--primary);
+}
+
+ul li.show{
+    animation:fadeUp 0.6s forwards;
+}
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Layout Livro/Filme */
+.netflix{
+    display:flex;
+    align-items:center;
+    gap:70px;
+}
+
+.poster{
+    width:320px;
+    border-radius:12px;
+    box-shadow:0 25px 50px rgba(0,0,0,0.6);
+}
+
+.tag{
+    background:var(--primary);
+    padding:6px 12px;
+    border-radius:5px;
+    font-size:14px;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+/* Navegação */
+.navigation{
+    position:fixed;
+    bottom:25px;
+    right:40px;
+}
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:6px;
+    background:var(--primary);
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    margin-left:10px;
+}
+
+.slide-counter{
+    position:fixed;
+    bottom:25px;
+    left:40px;
+    font-size:14px;
+    opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-image" id="bg"></div>
+<div class="progress-bar" id="progress"></div>
+<div class="slide-counter" id="counter"></div>
+
+<!-- SLIDE 1 -->
+<section class="slide active" data-bg="">
+<img src="logo.png" class="logo">
+<div class="content">
+<h1>LIDERANÇA NA PRÁTICA</h1>
+<h2>Teoria, Exemplo e Aplicação Real</h2>
+<p>Sistec Solar – <span class="highlight">Evolução de Liderança</span></p>
+</div>
+</section>
+
+<!-- LIVRO -->
+<section class="slide" data-bg="livro.jpg">
+<img src="logo.png" class="logo">
+<div class="netflix">
+<img src="livro.jpg" class="poster">
+<div class="content">
+<span class="tag">Base Conceitual</span>
+<h1>O Monge e o Executivo</h1>
+<ul>
+<li>Liderança não é <span class="highlight">poder</span></li>
+<li>Autoridade é construída pelo <span class="highlight">caráter</span></li>
+<li>Relacionamento sustenta <span class="highlight">resultado</span></li>
+<li>Disciplina forma <span class="highlight">liderança</span></li>
+</ul>
+<p class="highlight">Autoridade gera comprometimento.</p>
+</div>
+</div>
+</section>
+
+<!-- FILME -->
+<section class="slide" data-bg="filme.avif">
+<img src="logo.png" class="logo">
+<div class="netflix">
+<img src="filme.avif" class="poster">
+<div class="content">
+<span class="tag">Inspiração Cinematográfica</span>
+<h1>Gladiador</h1>
+<ul>
+<li>Liderança pelo <span class="highlight">exemplo</span></li>
+<li><span class="highlight">Coragem moral</span></li>
+<li>Influência mesmo sem <span class="highlight">cargo</span></li>
+<li>Propósito claro</li>
+</ul>
+<p class="highlight">O verdadeiro líder continua líder sem poder.</p>
+</div>
+</div>
+</section>
+
+<!-- PRÁTICA -->
+<section class="slide" data-bg="">
+<img src="logo.png" class="logo">
+<div class="content">
+<h1>O Que Já Colocamos em Prática</h1>
+<ul>
+<li>Menos <span class="highlight">imposição</span>, mais alinhamento</li>
+<li><span class="highlight">Escuta ativa</span> nas decisões</li>
+<li>Correção com respeito</li>
+<li>Clareza de responsabilidades</li>
+</ul>
+</div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="slide" data-bg="">
+<img src="logo.png" class="logo">
+<div class="content">
+<h1>Resultados Percebidos</h1>
+<ul>
+<li>Mais <span class="highlight">alinhamento interno</span></li>
+<li>Mais responsabilidade individual</li>
+<li><span class="highlight">Redução de conflitos</span></li>
+<li>Equipe mais madura</li>
+</ul>
+</div>
+</section>
+
+<!-- DESENVOLVIMENTO -->
+<section class="slide" data-bg="">
+<img src="logo.png" class="logo">
+<div class="content">
+<h1>O Que Ainda Estamos Desenvolvendo</h1>
+<ul>
+<li><span class="highlight">Delegação estratégica</span></li>
+<li>Formação de líderes internos</li>
+<li>Cultura ainda mais forte</li>
+<li>Comunicação estruturada</li>
+</ul>
+</div>
+</section>
+
+<!-- SÍNTESE -->
+<section class="slide" data-bg="">
+<img src="logo.png" class="logo">
+<div class="content">
+<h1>Síntese Final</h1>
+<p>Do livro aprendemos: <span class="highlight">Caráter</span></p>
+<p>Do filme aprendemos: <span class="highlight">Exemplo</span></p>
+<p>Na empresa aplicamos: <span class="highlight">Prática diária</span></p>
+</div>
+</section>
+
+<div class="navigation">
+<button onclick="prevSlide()">Voltar</button>
+<button onclick="nextSlide()">Avançar</button>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const progress = document.getElementById('progress');
+const counter = document.getElementById('counter');
+const bg = document.getElementById('bg');
+
+function animateBullets(slide){
+    const bullets = slide.querySelectorAll("li");
+    bullets.forEach((li,i)=>{
+        li.classList.remove("show");
+        setTimeout(()=>{ li.classList.add("show"); }, i*350);
+    });
+}
+
+function updateUI(){
+    slides.forEach(s=>s.classList.remove('active'));
+    slides[current].classList.add('active');
+
+    const bgImage = slides[current].getAttribute("data-bg");
+
+    if(bgImage){
+        bg.style.backgroundImage = `url(${bgImage})`;
+        bg.classList.add("active-bg");
+    } else {
+        bg.classList.remove("active-bg");
+    }
+
+    progress.style.width = ((current+1)/slides.length)*100 + "%";
+    counter.innerText = `Slide ${current+1} de ${slides.length}`;
+
+    animateBullets(slides[current]);
+}
+
+function nextSlide(){
+    if(current < slides.length-1){
+        current++;
+        updateUI();
+    }
+}
+
+function prevSlide(){
+    if(current>0){
+        current--;
+        updateUI();
+    }
+}
+
+document.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight") nextSlide();
+    if(e.key==="ArrowLeft") prevSlide();
+});
+
+updateUI();
+</script>
+
+</body>
+</html>
